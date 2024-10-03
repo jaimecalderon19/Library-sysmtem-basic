@@ -1,0 +1,12 @@
+{
+    "name": "mi/primer-intento-test-composer",
+    "description": "Descripción de mi proyecto",
+    "require": {
+        "mongodb/mongodb": "^1.18"
+    },
+    "autoload": {
+        "psr-4": {
+            "Mi\\Namespace\\": "src/"
+        }
+    }
+}

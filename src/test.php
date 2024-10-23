@@ -4,9 +4,17 @@
 
     require '../vendor/autoload.php'; // Incluye el autoloader de Composer
 
+    // Utiliza phpdotenv para cargar las variables de entorno
+    use Dotenv\Dotenv;
+
     use MongoDB\Driver\ServerApi;
 
-    $uri = 'mongodb+srv://elusuario:contraseñaw@cluster1.lqohrfe.mongodb.net/?retryWrites=true&w=majority&appName=Cluster1';
+    // Carga las variables de entorno desde el archivo .env
+    $dotenv = Dotenv::createImmutable(__DIR__);
+    $dotenv->load();
+
+    // Accede a la URI desde las variables de entorno
+    $uri = $_ENV['MONGODB_URI'];
 
 // Set the version of the Stable API on the client
 $apiVersion = new ServerApi(ServerApi::V1);

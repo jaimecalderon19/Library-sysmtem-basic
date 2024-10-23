@@ -1,12 +1,18 @@
 {
-    "name": "mi/primer-intento-test-composer",
-    "description": "Descripción de mi proyecto",
-    "require": {
-        "mongodb/mongodb": "^1.18"
-    },
+    "name": "uninpahu/mongo_db_biblioteca",
     "autoload": {
         "psr-4": {
-            "Mi\\Namespace\\": "src/"
+            "Rentadvisor\\MongoDbBiblioteca\\": "src/"
         }
+    },
+    "authors": [
+        {
+            "name": "jaime calderon",
+            "email": "jaimebc.yt@gmail.com"
+        }
+    ],
+    "require": {
+         "mongodb/mongodb": "^1.18",
+        "vlucas/phpdotenv": "^5.6"
     }
 }

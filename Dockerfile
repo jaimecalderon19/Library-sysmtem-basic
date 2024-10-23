@@ -20,8 +20,8 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 # Set the working directory
 WORKDIR /var/www/html
 
-# Copy the PHP project into the container
-COPY . .
+# Copy the contents of the src directory into the root of the web server
+COPY src/ /var/www/html/
 
 # Install project dependencies using Composer
 RUN composer install

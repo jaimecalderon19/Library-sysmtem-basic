@@ -2,7 +2,7 @@
     // Parámetros de la función para conectarnos a la base de datos MongoDB
     
 
-    require '../vendor/autoload.php'; // Incluye el autoloader de Composer
+    require 'vendor/autoload.php'; // Incluye el autoloader de Composer
 
     // Utiliza phpdotenv para cargar las variables de entorno
     use Dotenv\Dotenv;

@@ -1,20 +1,21 @@
 <?php
-    // Parámetros de la función para conectarnos a la base de datos MongoDB
-    
+require 'vendor/autoload.php';
 
-    require 'vendor/autoload.php'; // Incluye el autoloader de Composer
+use Dotenv\Dotenv;
+use MongoDB\Driver\ServerApi;
 
-    // Utiliza phpdotenv para cargar las variables de entorno
-    use Dotenv\Dotenv;
-
-    use MongoDB\Driver\ServerApi;
-
-    // Carga las variables de entorno desde el archivo .env
+// Intenta cargar .env solo si existe
+if (file_exists(__DIR__ . '/.env')) {
     $dotenv = Dotenv::createImmutable(__DIR__);
     $dotenv->load();
+}
 
-    // Accede a la URI desde las variables de entorno
-    $uri = $_ENV['MONGODB_URI'];
+// Intenta obtener la URI de diferentes fuentes
+$uri = $_ENV['MONGODB_URI'] ?? getenv('MONGODB_URI') ?? null;
+
+if (!$uri) {
+    throw new Exception('La variable de entorno MONGODB_URI no está configurada');
+}
 
 // Set the version of the Stable API on the client
 $apiVersion = new ServerApi(ServerApi::V1);

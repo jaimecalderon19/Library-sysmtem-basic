@@ -226,7 +226,7 @@ try {
 <body>
     <h3>Find Your Book</h3>
     <h5>Bienvenido ayudante de La Montaña Mágica</h5>
-    <form action="test.php" method="POST">
+    <form action="" method="POST">
         <h4>Selecciona la acción que deseas realizar</h4>
         <select name="option" id="option">
             <option value="1">Insertar Libro</option>
